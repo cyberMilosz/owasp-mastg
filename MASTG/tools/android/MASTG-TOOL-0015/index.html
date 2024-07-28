@@ -16895,25 +16895,25 @@
 <p>Once drozer is set up, you can use drozer to perform reconnaissance and exploitation of Android applications from the perspective of a malicious app on the device. <a href="https://labs.withsecure.com/tools/drozer#3" title="drozer User Manual">The drozer User Manual</a> introduces an intentionally vulnerable application - <a href="https://github.com/WithSecureLabs/sieve" title="GitHub repo - sieve">sieve</a> - together with step-by-step exploitation instructions.</p>
 <p>Some common drozer commands include:</p>
 <h4 id="searching-for-applications-on-the-device">Searching for applications on the device<a class="headerlink" href="#searching-for-applications-on-the-device" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>run app.package.list -f &lt;keyword&gt;
+<div class="highlight"><pre><span></span><code>run<span class="w"> </span>app.package.list<span class="w"> </span>-f<span class="w"> </span>&lt;keyword&gt;
 </code></pre></div>
 <p>This lists basic information about any packages containing the word "<keyword>" in their bundle identifier. This includes package names, key directories used by the application, and any permissions used or defined by the application.</p>
 <h4 id="enumerating-the-attack-surface-of-an-app">Enumerating the attack surface of an app<a class="headerlink" href="#enumerating-the-attack-surface-of-an-app" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>run app.package.attacksurface &lt;package&gt;
+<div class="highlight"><pre><span></span><code>run<span class="w"> </span>app.package.attacksurface<span class="w"> </span>&lt;package&gt;
 </code></pre></div>
 <p>This command inspects the target app's manifest and provides a report on any exported components of the application, and verifies whether the application is debuggable.</p>
 <p>Once the attack surface has been identified, you can obtain more specific information about each component class. For example, to list  Activities, you can use the following command:</p>
-<div class="highlight"><pre><span></span><code>run app.activity.info -a &lt;package&gt;
+<div class="highlight"><pre><span></span><code>run<span class="w"> </span>app.activity.info<span class="w"> </span>-a<span class="w"> </span>&lt;package&gt;
 </code></pre></div>
 <p>This lists the names of all exported Activities, together with the permissions required to interact with them.</p>
 <h4 id="starting-an-activity">Starting an Activity<a class="headerlink" href="#starting-an-activity" title="Permanent link">&para;</a></h4>
 <p>In order to launch an exported activity, use the following command:</p>
-<div class="highlight"><pre><span></span><code>run app.activity.start --component &lt;package&gt; &lt;component name&gt;
+<div class="highlight"><pre><span></span><code>run<span class="w"> </span>app.activity.start<span class="w"> </span>--component<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;component<span class="w"> </span>name&gt;
 </code></pre></div>
 <p>When calling <code>app.activity.start</code>, you can build a much more complex intent. As with all drozer modules, you can request more usage information by using the <code>help</code> command:</p>
-<div class="highlight"><pre><span></span><code>dz&gt; help app.activity.start
-Attempting to run shell module
-usage: run app.activity.start [-h] [--action ACTION] [--category CATEGORY [CATEGORY ...]] [--component PACKAGE COMPONENT] [--data-uri DATA_URI] [--extra TYPE KEY VALUE] [--flags FLAGS [FLAGS ...]] [--mimetype MIMETYPE]
+<div class="highlight"><pre><span></span><code>dz&gt;<span class="w"> </span><span class="nb">help</span><span class="w"> </span>app.activity.start
+Attempting<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>shell<span class="w"> </span>module
+usage:<span class="w"> </span>run<span class="w"> </span>app.activity.start<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--action<span class="w"> </span>ACTION<span class="o">]</span><span class="w"> </span><span class="o">[</span>--category<span class="w"> </span>CATEGORY<span class="w"> </span><span class="o">[</span>CATEGORY<span class="w"> </span>...<span class="o">]]</span><span class="w"> </span><span class="o">[</span>--component<span class="w"> </span>PACKAGE<span class="w"> </span>COMPONENT<span class="o">]</span><span class="w"> </span><span class="o">[</span>--data-uri<span class="w"> </span>DATA_URI<span class="o">]</span><span class="w"> </span><span class="o">[</span>--extra<span class="w"> </span>TYPE<span class="w"> </span>KEY<span class="w"> </span>VALUE<span class="o">]</span><span class="w"> </span><span class="o">[</span>--flags<span class="w"> </span>FLAGS<span class="w"> </span><span class="o">[</span>FLAGS<span class="w"> </span>...<span class="o">]]</span><span class="w"> </span><span class="o">[</span>--mimetype<span class="w"> </span>MIMETYPE<span class="o">]</span>
 </code></pre></div>
 <p>You can learn more about how intents are created by running <code>help intents</code>.</p>
 <h2 id="other-drozer-resources">Other drozer resources<a class="headerlink" href="#other-drozer-resources" title="Permanent link">&para;</a></h2>
